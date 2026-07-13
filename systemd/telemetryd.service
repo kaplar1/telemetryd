@@ -1,0 +1,28 @@
+[Unit]
+Description=Secure network telemetry daemon
+Documentation=man:telemetryd(8)
+Requires=telemetryd.socket
+After=network.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/telemetryd
+Restart=on-failure
+RestartSec=2
+
+# Run unprivileged.
+DynamicUser=yes
+
+# Sandbox hardening — good to be able to learn each of these
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallFilter=@system-service
+CapabilityBoundingSet=
+MemoryDenyWriteExecute=yes
+
+[Install]
+WantedBy=multi-user.target

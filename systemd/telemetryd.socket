@@ -1,0 +1,11 @@
+[Unit]
+Description=telemetryd listening socket
+
+[Socket]
+# systemd creates and listens on this socket, then hands the ready fd to the
+# service on first connection. This is the "socket activation" your net.c
+# handles via sd_listen_fds().
+ListenStream=9099
+
+[Install]
+WantedBy=sockets.target
