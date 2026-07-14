@@ -3,6 +3,7 @@ DESCRIPTION = "A small C daemon: TCP/TLS service, systemd socket activation, \
 D-Bus control interface. Demo project for embedded Linux network work."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+FILESEXTRAPATHS:prepend := "${THISDIR}/../../../../:"
 
 # Pull the build tree in. For real work you'd use SRC_URI = "git://..." with
 # SRCREV; for local iteration, file:// pointing at the sources works.
