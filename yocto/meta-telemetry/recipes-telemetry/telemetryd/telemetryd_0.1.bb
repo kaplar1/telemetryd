@@ -23,7 +23,7 @@ DEPENDS = "systemd"
 # DEPENDS += "openssl"
 
 # Pull in systemd handling (installs + enables units).
-inherit systemd
+inherit systemd pkgconfig
 
 SYSTEMD_SERVICE:${PN} = "telemetryd.socket telemetryd.service"
 SYSTEMD_AUTO_ENABLE = "enable"
