@@ -31,7 +31,7 @@ SYSTEMD_AUTO_ENABLE = "enable"
 # This daemon needs systemd in the image.
 REQUIRED_DISTRO_FEATURES = "systemd"
 
-EXTRA_OEMAKE = "'CC=${CC}' 'CFLAGS=${CFLAGS}' 'LDLIBS=${LDLIBS}'"
+EXTRA_OEMAKE = "'CC=${CC}' 'CFLAGS=${CFLAGS}'"
 
 do_compile() {
     oe_runmake
