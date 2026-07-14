@@ -11,7 +11,7 @@ OBJ  = $(SRC:.c=.o)
 BIN  = telemetryd
 
 $(BIN): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJ) $(LDLIBS)
 
 clean:
 	rm -f $(OBJ) $(BIN)

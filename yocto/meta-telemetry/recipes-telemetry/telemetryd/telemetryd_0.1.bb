@@ -23,7 +23,7 @@ DEPENDS = "systemd"
 # DEPENDS += "openssl"
 
 # Pull in systemd handling (installs + enables units).
-inherit systemd pkgconfig
+inherit systemd pkgconfig features_check
 
 SYSTEMD_SERVICE:${PN} = "telemetryd.socket telemetryd.service"
 SYSTEMD_AUTO_ENABLE = "enable"
@@ -31,7 +31,7 @@ SYSTEMD_AUTO_ENABLE = "enable"
 # This daemon needs systemd in the image.
 REQUIRED_DISTRO_FEATURES = "systemd"
 
-EXTRA_OEMAKE = "'CC=${CC}' 'CFLAGS=${CFLAGS}'"
+EXTRA_OEMAKE = "'CC=${CC}' 'CFLAGS=${CFLAGS}' 'LDFLAGS=${LDFLAGS}'"
 
 do_compile() {
     oe_runmake
