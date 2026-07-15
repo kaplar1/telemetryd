@@ -11,7 +11,8 @@ Restart=on-failure
 RestartSec=2
 
 # Run unprivileged.
-DynamicUser=yes
+User=telemetryd
+Group=telemetryd
 
 # Sandbox hardening — good to be able to learn each of these
 NoNewPrivileges=yes
