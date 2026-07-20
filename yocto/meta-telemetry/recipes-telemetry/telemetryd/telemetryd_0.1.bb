@@ -79,11 +79,11 @@ do_install() {
 
 FILES:${PN} += "${systemd_system_unitdir} ${sysconfdir}/dbus-1/system.d"
 
-# Deliberately NOT provisioning /etc/telemetryd/tls/{server.crt,server.key,
-# ca.crt} here -- unlike the dev-only telemetryd-devkeys/telemetryd-wifi
-# recipes, baking real TLS key material into the image isn't something to
-# even shortcut for dev convenience (a private key that ships identically
-# on every image defeats the point of having one). telemetryd fails closed
-# with a clear log message if these aren't present on target (see
-# net_listen_init() in net.c) until a real provisioning step supplies them.
-# Flag this gap explicitly in THREAT_MODEL.md (Stage F).
+# /etc/telemetryd/tls/{server.crt,server.key,ca.crt} are NOT provisioned by
+# this recipe -- see telemetryd-devcerts for that (a separate, explicitly
+# dev-only recipe: baking real TLS key material into the image identically
+# on every build isn't something to shortcut silently here). telemetryd
+# fails closed with a clear log message if the files aren't present on
+# target (see net_listen_init() in net.c) regardless of which provisioning
+# path supplies them. Flag the dev-cert shortcut in THREAT_MODEL.md
+# alongside the devkeys/wifi ones (Stage F).
